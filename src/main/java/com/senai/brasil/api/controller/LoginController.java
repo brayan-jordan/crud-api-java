@@ -2,7 +2,6 @@ package com.senai.brasil.api.controller;
 
 import com.senai.brasil.api.assembler.PessoaAssembler;
 import com.senai.brasil.api.model.LoginModel;
-import com.senai.brasil.domain.exception.NegocioException;
 import com.senai.brasil.domain.model.AuthenticationResponse;
 import com.senai.brasil.domain.model.Pessoa;
 import com.senai.brasil.security.ImplementsUserDetailsService;

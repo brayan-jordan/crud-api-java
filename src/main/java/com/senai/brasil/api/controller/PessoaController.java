@@ -4,7 +4,6 @@ import com.senai.brasil.api.model.PessoaModel;
 import com.senai.brasil.api.model.input.PessoaInput;
 import com.senai.brasil.domain.service.PessoaService;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
