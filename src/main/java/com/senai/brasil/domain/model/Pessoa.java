@@ -4,6 +4,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -22,10 +23,9 @@ public class Pessoa {
     @NotNull
     String nome;
 
-    @NotNull
+    @Email
     String email;
 
-    @NotNull
     String senha;
 
 }

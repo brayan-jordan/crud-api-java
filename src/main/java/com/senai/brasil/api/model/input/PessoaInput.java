@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -17,8 +18,10 @@ public class PessoaInput {
     @NotBlank
     String nome;
 
+    @Email
     @Size(max = 100)
     @NotBlank
+    @Valid
     String email;
 
     String senha;
