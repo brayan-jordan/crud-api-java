@@ -1,6 +1,8 @@
 package com.senai.brasil.api.assembler;
 
+import com.senai.brasil.api.model.LoginModel;
 import com.senai.brasil.api.model.PessoaModel;
+import com.senai.brasil.api.model.UsuarioModel;
 import com.senai.brasil.api.model.input.PessoaInput;
 import com.senai.brasil.domain.model.Pessoa;
 import lombok.AllArgsConstructor;
@@ -28,4 +30,11 @@ public class PessoaAssembler {
         return pessoas.stream().map(this::toModel).collect(Collectors.toList());
     }
 
+    public Pessoa toEntityLogin(LoginModel loginModel) {
+        return modelMapper.map(loginModel, Pessoa.class);
+    }
+
+    public UsuarioModel toModelUser(Pessoa pessoa) {
+        return modelMapper.map(pessoa, UsuarioModel.class);
+    }
 }
