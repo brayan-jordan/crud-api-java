@@ -29,7 +29,6 @@ public class LoginController {
     @PostMapping("/authenticate")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody LoginModel loginModel) throws Exception {
         Pessoa pessoa = pessoaAssembler.toEntityLogin(loginModel);
-
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(pessoa.getUsername(), pessoa.getPassword())

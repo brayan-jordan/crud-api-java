@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PessoaRepository extends JpaRepository<Pessoa, Integer> {
+public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
 
     @Query("SELECT p FROM Pessoa p WHERE p.email = ?1")
     Pessoa findByEmail(String email);
