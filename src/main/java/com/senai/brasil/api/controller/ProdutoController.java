@@ -35,4 +35,19 @@ public class ProdutoController {
         return produtoService.listarTodos();
     }
 
+    @PutMapping("/aumentarquantidade/{produtoCodigo}/{quantidade}")
+    public ProdutoModel aumentarEstoque(@PathVariable int produtoCodigo, @PathVariable int quantidade) {
+        return produtoService.aumentarQuantidade(produtoCodigo, quantidade);
+    }
+
+    @PutMapping("/diminuirquantidade/{produtoCodigo}/{quantidade}")
+    public ProdutoModel diminuirQuantidade(@PathVariable int produtoCodigo, @PathVariable int quantidade) {
+        return produtoService.diminuirQuantidade(produtoCodigo, quantidade);
+    }
+
+    @PutMapping("/alterarpreco/{produtoCodigo}/{newValor}")
+    public ProdutoModel alterarPreco(@PathVariable int produtoCodigo, @PathVariable double newValor) {
+        return produtoService.alterarPreco(produtoCodigo, newValor);
+    }
+
 }

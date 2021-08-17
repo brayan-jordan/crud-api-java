@@ -12,10 +12,10 @@ import javax.persistence.*;
 public class RolePessoa {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long pessoas_codigo;
+    private int pessoas_codigo;
 
     private String role_nome_role;
 

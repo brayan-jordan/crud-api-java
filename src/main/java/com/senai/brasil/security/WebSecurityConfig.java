@@ -13,12 +13,12 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher; 
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @EnableWebSecurity
 @Configuration
 @AllArgsConstructor
-public class WebSecutiryConfig extends WebSecurityConfigurerAdapter {
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private ImplementsUserDetailsService implementsUserDetailsService;
     private JWTRequestFilter jwtRequestFilter;
@@ -32,6 +32,7 @@ public class WebSecutiryConfig extends WebSecurityConfigurerAdapter {
             "/produtos/cadastrar",
             "/produtos/listar",
             "/produtos/deletarproduto/{produtoCodigo}",
+            "/aumentarquantidade/{produtoCodigo}/{quantidade}",
     };
 
     @Override
@@ -39,10 +40,10 @@ public class WebSecutiryConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
         .authorizeRequests()
         .antMatchers("/authenticate").permitAll()
-        .antMatchers(HttpMethod.GET,AUTH_LIST).permitAll()
-        .antMatchers(HttpMethod.POST,AUTH_LIST).permitAll()
-        .antMatchers(HttpMethod.PUT,AUTH_LIST).permitAll()
-        .antMatchers(HttpMethod.DELETE,AUTH_LIST).permitAll()
+        .antMatchers(HttpMethod.GET,AUTH_LIST).hasRole("ADMIN")
+        .antMatchers(HttpMethod.POST,AUTH_LIST).hasRole("ADMIN")
+        .antMatchers(HttpMethod.PUT,AUTH_LIST).hasRole("ADMIN")
+        .antMatchers(HttpMethod.DELETE,AUTH_LIST).hasRole("ADMIN")
         .anyRequest().authenticated()
             .and().cors()
         .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
