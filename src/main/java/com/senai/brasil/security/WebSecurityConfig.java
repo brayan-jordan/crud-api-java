@@ -32,7 +32,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             "/produtos/cadastrar",
             "/produtos/listar",
             "/produtos/deletarproduto/{produtoCodigo}",
-            "/aumentarquantidade/{produtoCodigo}/{quantidade}",
+            "/produtos/aumentarquantidade/{produtoCodigo}/{quantidade}",
+            "/produtos/diminuirquantidade/{produtoCodigo}/{quantidade}",
+            "/produtos/alterarpreco/{produtoCodigo}/{newValor}",
+            "/pessoas/editarnome/{pessoaCodigo}",
+            "/pessoas/editaremail/{pessoaCodigo}",
+            "/pessoas/deletarpessoa/{pessoaCodigo}",
+            "/pessoas/editarsenha/{pessoaCodigo}",
+            "/pessoas/editaradmin/{pessoaCodigo}"
     };
 
     @Override
